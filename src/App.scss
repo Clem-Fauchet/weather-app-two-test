@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Tomorrow:400,500,700,800&display=swap');
+
+$font: 'Tomorrow', sans-serif;
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -19,15 +23,15 @@ body,
   align-items: center;
 
   .main-container {
-    min-width: 600px;
-    height: 300px;
-    display: flex;
+    min-width: 60%;
+    height: 50vh;
     border: 1px solid #999;
     border-radius: 3px;
     display: flex;
     flex-direction: column;
 
-    .top-section {
+    .top-section,
+    .bottom-section {
       flex: 0 0 50%;
     }
   }

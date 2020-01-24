@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 export class Bottom extends Component {
   render() {
-    return <div></div>
+    return <div>Bottom Section</div>
   }
 }
 
