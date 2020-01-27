@@ -4,11 +4,18 @@ import Weather from './Weather'
 
 import { Manager, Reference, Popper } from 'react-popper'
 
-function Top() {
+function Top(props) {
   const [isSelectOpen, setSelectOpen] = useState(false)
 
   const onToggleSelectLocation = (prevIsSelectOpen) => {
     setSelectOpen((prevIsSelectOpen) => !isSelectOpen)
+  }
+
+  const [selectCityChange, setSelectCityChange] = useState({ locationName: '' })
+
+  const onSelectCity = () => {
+    const { eventEmitter } = this.props
+    eventEmitter.emit('updateWeather', { locationName: '' })
   }
 
   return (
@@ -44,8 +51,14 @@ function Top() {
                     type='text'
                     id='location-name'
                     placeholder='City Name'
+                    value={selectCityChange.locationName}
+                    onChange={(e) =>
+                      setSelectCityChange({ locationName: e.target.value })
+                    }
                   />
-                  <button className='btn btn-location'>Select</button>
+                  <button className='btn btn-location' onClick={onSelectCity}>
+                    Select
+                  </button>
                 </div>
                 <div ref={arrowProps.ref} style={arrowProps.style} />
               </div>

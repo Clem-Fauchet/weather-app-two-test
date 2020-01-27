@@ -19,6 +19,10 @@ function Weather() {
           setIsLoading(false)
           setWeather(data.current)
         }, 1800)
+        const { eventEmitter } = this.props
+        eventEmitter.on('updateWeather', (data) => {
+          console.log('LocationName: ', data[0].locationName)
+        })
       })
       .catch((err) => {
         if (err) console.error("Can't fetch API", err)
