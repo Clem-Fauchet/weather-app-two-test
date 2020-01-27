@@ -23,8 +23,8 @@ body,
   align-items: center;
 
   .main-container {
-    min-width: 80%;
-    height: 70vh;
+    min-width: 40%;
+    height: 50vh;
     border: 1px solid #999;
     border-radius: 3px;
     display: flex;
@@ -33,6 +33,56 @@ body,
     .top-section,
     .bottom-section {
       flex: 0 0 50%;
+    }
+  }
+
+  @media screen and (max-width: 640px) {
+    .main-container {
+      width: 80%;
+      height: 70vh;
+    }
+  }
+
+  .btn {
+    border: 1px solid ghostwhite;
+    cursor: pointer;
+  }
+  &:focus {
+    outline: none;
+  }
+
+  .popper {
+    position: absolute;
+    top: -5% !important;
+    left: 35% !important;
+    width: 45%;
+    height: 7em;
+    display: flex;
+    border-radius: 4px;
+    background-color: ghostwhite;
+    box-shadow: 0px 0px 5px 2px rgba(15, 15, 15, 0.2);
+    font-size: 16px;
+  }
+  @media screen and (max-width: 800px) {
+    .popper {
+      width: 60%;
+      height: 6em;
+      left: 36% !important;
+      top: -8% !important;
+    }
+  }
+
+  .form-container {
+    padding: 6px;
+    width: 100%;
+    label {
+      font-size: 15px;
+    }
+    input {
+      border-radius: 2px;
+      border: 1px solid rgba (15, 15, 15, 0.2);
+      padding: 3px;
+      outline: none;
     }
   }
 }

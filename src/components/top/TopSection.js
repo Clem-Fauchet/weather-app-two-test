@@ -31,8 +31,22 @@ function Top() {
         <Popper placement='top'>
           {({ ref, style, placement, arrowProps }) =>
             isSelectOpen && (
-              <div ref={ref} style={style} data-placement={placement}>
-                Popper element
+              <div
+                className='popper'
+                ref={ref}
+                style={style}
+                data-placement={placement}
+              >
+                <div className='form-container'>
+                  <label htmlFor='location-name'>Location Name</label>
+                  <br />
+                  <input
+                    type='text'
+                    id='location-name'
+                    placeholder='City Name'
+                  />
+                  <button className='btn btn-location'>Select</button>
+                </div>
                 <div ref={arrowProps.ref} style={arrowProps.style} />
               </div>
             )
