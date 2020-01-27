@@ -1,4 +1,5 @@
 @import '../../App.scss';
+@import url('https://fonts.googleapis.com/css?family=Bangers&display=swap');
 
 .top-container {
   display: flex;
@@ -41,12 +42,22 @@
 .weather-container {
   color: ghostwhite;
   height: 100%;
+  width: 28%;
   display: flex;
   flex-direction: column;
   justify-content: center;
 
+  .loading-screen {
+    font-size: 2.2em;
+    width: 100%;
+    text-align: center;
+    font-family: 'Bangers', cursive;
+    letter-spacing: 5px;
+  }
+
   .header {
     padding: 16px 0;
+    text-align: center;
   }
 
   .inner-container {
