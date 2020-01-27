@@ -9,32 +9,30 @@ const api = {
 }
 
 function Weather() {
-  const [query, setQuery] = useState({
-    cityName: 'London',
-    forecastDays: 5,
-  })
+  const [query, setQuery] = useState('London')
+  const [weather, setWeather] = useState({})
 
   useEffect(() => {
-    fetch(
-      `${api.base}forecast?acces_key=${api.key}&query=${query.cityName}&forecast_days=${query.forecastDays}`
-    )
+    fetch(`${api.base}current?access_key=${api.key}&query=${query}`)
       .then((res) => res.json())
-      .then((data) => console.log('DATA', data))
+      .then((data) => {
+        setWeather(data.current)
+      })
       .catch((err) => {
         if (err) console.error("Can't fetch API", err)
       })
-  })
+  }, [query])
 
   return (
     <div className='weather-container'>
-      <div className='header'>Location here</div>
+      <div className='header'>{query}</div>
       <div className='inner-container'>
         <div className='image'>
-          <img src={SunImg} alt='sunny' />
+          <img src={weather.weather_icons} alt='' />
         </div>
-        <div className='current-weather'>10</div>
+        <div className='current-weather'>{weather.temperature}</div>
       </div>
-      <div className='footer'>Sunny</div>
+      <div className='footer'>{weather.weather_descriptions}</div>
     </div>
   )
 }
