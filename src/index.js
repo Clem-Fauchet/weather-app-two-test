@@ -7,9 +7,10 @@ import * as serviceWorker from './serviceWorker'
 import Store from './Store'
 
 ReactDOM.render(
-  <Store>
-    <App />
-  </Store>,
+  // <Store>
+  //   <App />
+  // </Store>,
+  <App />,
   document.getElementById('root')
 )
 

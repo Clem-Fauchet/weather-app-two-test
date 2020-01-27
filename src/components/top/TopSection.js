@@ -11,7 +11,9 @@ function Top(props) {
     setSelectOpen((prevIsSelectOpen) => !isSelectOpen)
   }
 
-  const [selectCityChange, setSelectCityChange] = useState({ locationName: '' })
+  const [locationNameChange, setLocationNameChange] = useState({
+    locationName: '',
+  })
 
   const onSelectCity = () => {
     const { eventEmitter } = this.props
@@ -51,9 +53,9 @@ function Top(props) {
                     type='text'
                     id='location-name'
                     placeholder='City Name'
-                    value={selectCityChange.locationName}
+                    value={locationNameChange.locationName}
                     onChange={(e) =>
-                      setSelectCityChange({ locationName: e.target.value })
+                      setLocationNameChange({ locationName: e.target.value })
                     }
                   />
                   <button className='btn btn-location' onClick={onSelectCity}>

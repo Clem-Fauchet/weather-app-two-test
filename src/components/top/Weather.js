@@ -18,16 +18,14 @@ function Weather() {
         setTimeout(() => {
           setIsLoading(false)
           setWeather(data.current)
-        }, 1800)
-        const { eventEmitter } = this.props
-        eventEmitter.on('updateWeather', (data) => {
-          console.log('LocationName: ', data[0].locationName)
-        })
+          setQuery(data.location)
+        }, 2000)
       })
+
       .catch((err) => {
         if (err) console.error("Can't fetch API", err)
       })
-  }, [query])
+  }, [])
 
   return (
     <div className='weather-container'>
@@ -35,7 +33,7 @@ function Weather() {
         <h3 className='loading-screen'>Loading Weather...</h3>
       ) : (
         <div>
-          <div className='header'>{query}</div>
+          <div className='header'>{query.name}</div>
           <div className='inner-container'>
             <div className='image'>
               <img src={weather.weather_icons} alt='Img' />

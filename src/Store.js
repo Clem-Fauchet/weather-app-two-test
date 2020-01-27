@@ -1,15 +1,17 @@
 import React, { Component } from 'react'
 
-import { EventEmitter } from 'events'
+import EventEmitter from 'events'
 
 export class Store extends Component {
   constructor(props) {
     super(props)
+
+    this.eventEmitter = new EventEmitter()
+
     this.state = {
       // Main App state
       appName: 'Weather up',
     }
-    this.eventEmitter = new EventEmitter()
   }
 
   render() {
