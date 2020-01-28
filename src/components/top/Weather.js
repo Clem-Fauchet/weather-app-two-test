@@ -6,13 +6,13 @@ const api = {
   base: 'http://api.weatherstack.com/',
 }
 
-function Weather() {
-  const [query, setQuery] = useState('London')
+function Weather({ locationName, update }) {
   const [weather, setWeather] = useState({})
   const [isLoading, setIsLoading] = useState(true)
+  const [query, setQuery] = useState('')
 
   useEffect(() => {
-    fetch(`${api.base}current?access_key=${api.key}&query=${query}`)
+    fetch(`${api.base}current?access_key=${api.key}&query=${locationName}`)
       .then((res) => res.json())
       .then((data) => {
         setTimeout(() => {
@@ -21,11 +21,10 @@ function Weather() {
           setQuery(data.location)
         }, 2000)
       })
-
       .catch((err) => {
         if (err) console.error("Can't fetch API", err)
       })
-  }, [])
+  }, [update])
 
   return (
     <div className='weather-container'>

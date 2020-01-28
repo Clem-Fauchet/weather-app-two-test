@@ -4,26 +4,22 @@ import Weather from './Weather'
 
 import { Manager, Reference, Popper } from 'react-popper'
 
-function Top(props) {
+function Top() {
   const [isSelectOpen, setSelectOpen] = useState(false)
+  const [query, setQuery] = useState({
+    locationName: 'London',
+  })
 
   const onToggleSelectLocation = (prevIsSelectOpen) => {
     setSelectOpen((prevIsSelectOpen) => !isSelectOpen)
   }
 
-  const [locationNameChange, setLocationNameChange] = useState({
-    locationName: '',
-  })
-
-  const onSelectCity = () => {
-    const { eventEmitter } = this.props
-    eventEmitter.emit('updateWeather', { locationName: '' })
-  }
+  const [updateQuery, setUpdateQuery] = useState(false)
 
   return (
     <div className='top-container'>
       <div className='title'>Weather Up</div>
-      <Weather />
+      <Weather locationName={query.locationName} update={updateQuery} />
 
       <Manager>
         <Reference>
@@ -53,12 +49,15 @@ function Top(props) {
                     type='text'
                     id='location-name'
                     placeholder='City Name'
-                    value={locationNameChange.locationName}
-                    onChange={(e) =>
-                      setLocationNameChange({ locationName: e.target.value })
-                    }
+                    value={query.locationName}
+                    onChange={(e) => setQuery({ locationName: e.target.value })}
                   />
-                  <button className='btn btn-location' onClick={onSelectCity}>
+                  <button
+                    className='btn btn-location search'
+                    onClick={(prevState) => {
+                      setUpdateQuery((prevState) => !updateQuery)
+                    }}
+                  >
                     Select
                   </button>
                 </div>
