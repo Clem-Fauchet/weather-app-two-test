@@ -29,7 +29,7 @@ function Weather({ locationName, update }) {
   return (
     <div className='weather-container'>
       {isLoading === true ? (
-        <h3 className='loading-screen'>Loading Weather...</h3>
+        <h3 className='loading-screen'>Loading data...</h3>
       ) : (
         <div>
           <div className='header'>{query.name}</div>

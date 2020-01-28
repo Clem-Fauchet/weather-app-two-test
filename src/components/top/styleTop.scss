@@ -23,7 +23,8 @@
     margin-bottom: 2%;
   }
 
-  .btn-location {
+  .btn-location,
+  .btn-blank {
     position: absolute;
     bottom: 4%;
     left: 2%;
@@ -36,6 +37,9 @@
     color: ghostwhite;
     font-family: $font;
     box-shadow: 0 0 3px 1px #ffffff8a;
+  }
+  .btn-blank {
+    left: 30%;
   }
 }
 

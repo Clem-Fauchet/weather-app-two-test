@@ -18,7 +18,7 @@ function Top() {
 
   return (
     <div className='top-container'>
-      <div className='title'>Weather Up</div>
+      <div className='title'>What's the Weather?</div>
       <Weather locationName={query.locationName} update={updateQuery} />
 
       <Manager>
@@ -53,12 +53,18 @@ function Top() {
                     onChange={(e) => setQuery({ locationName: e.target.value })}
                   />
                   <button
-                    className='btn btn-location search'
+                    className='btn btn-location'
                     onClick={(prevState) => {
                       setUpdateQuery((prevState) => !updateQuery)
                     }}
                   >
                     Select
+                  </button>
+                  <button
+                    className='btn btn-blank'
+                    onClick={(e) => setQuery({ locationName: '' })}
+                  >
+                    Blank
                   </button>
                 </div>
                 <div ref={arrowProps.ref} style={arrowProps.style} />
