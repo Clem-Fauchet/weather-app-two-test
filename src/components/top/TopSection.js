@@ -7,7 +7,7 @@ import { Manager, Reference, Popper } from 'react-popper'
 function Top() {
   const [isSelectOpen, setSelectOpen] = useState(false)
   const [query, setQuery] = useState({
-    locationName: 'London',
+    locationName: 'Oslo',
   })
 
   const onToggleSelectLocation = (prevIsSelectOpen) => {
@@ -56,6 +56,9 @@ function Top() {
                     className='btn btn-location'
                     onClick={(prevState) => {
                       setUpdateQuery((prevState) => !updateQuery)
+                      setTimeout(() => {
+                        setSelectOpen(false)
+                      }, 1500)
                     }}
                   >
                     Select
